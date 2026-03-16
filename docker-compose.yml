@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend/ResumeAnalyser.API
+      dockerfile: Dockerfile
+    container_name: resume-backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - Groq__ApiKey=${GROQ_API_KEY}
+      - Adzuna__AppId=${ADZUNA_APP_ID}
+      - Adzuna__ApiKey=${ADZUNA_API_KEY}
+      - Adzuna__Country=${ADZUNA_COUNTRY:-gb}
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: resume-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

@@ -1,0 +1,25 @@
+# .NET
+**/bin/
+**/obj/
+**/*.user
+**/appsettings.Development.json
+
+# API Keys - ÖNEMLI
+.env
+**/appsettings.json
+
+# Node
+**/node_modules/
+**/dist/
+**/.env
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/venv/
+**/.env
+
+# IDE
+**/.vs/
+**/.vscode/
+**/.idea/
